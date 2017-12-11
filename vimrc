@@ -5,14 +5,12 @@ if $OS == "macos"
   let g:python3_host_prog = '/Users/Jim/.conda/bin/python3'
 endif
 if $OS == "android"
+  let g:python_host_prog = '/data/data/com.termux/files/usr/bin/python2'
   let g:python3_host_prog = '/data/data/com.termux/files/usr/bin/python3'
 endif
 
 " Use system clipboard
-set clipboard=unnamed,unnamedplus
-
-" Use Unix as the standard file type
-set ffs=unix,dos,mac
+set clipboard+=unnamedplus
 
 " Sets how many lines of history VIM has to remember
 set history=700
@@ -384,7 +382,7 @@ let g:airline_mode_map = {
     \ '' : 'S',
     \ }
 
-let g:airline_section_z = '%p%% 𝐑:%l 𝐂:%c ≣%L'
+let g:airline_section_z = '%p%% R:%l C:%c ≣%L'
 
 " }}}
 
@@ -487,7 +485,6 @@ set completeopt+=longest
 " Use buffer words as default tab completion
 let g:SuperTabDefaultCompletionType = '<c-x><c-p>'
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_python_binary_path = '/Users/Jim/.conda/bin/python3'
 
 " }}}
 
