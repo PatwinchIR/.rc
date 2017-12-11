@@ -2,7 +2,7 @@
 	name = Jim Zenn
 	email = jimzenn0@gmail.com
 [core]
-	excludesfile = /Users/Jim/.gitignore_global
+	excludesfile = $HOME/.gitignore_global
     editor = nvim
 	ignorecase = false
 [difftool "sourcetree"]
@@ -34,4 +34,4 @@
     smudge = git-lfs smudge %f
     required = true
 [commit]
-	template = /Users/Jim/.stCommitMsg
+	template = $HOME/.stCommitMsg
