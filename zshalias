@@ -1,4 +1,5 @@
 # Typos
+
 alias cd..="cd .."
 alias sl="ls"
 alias brwe="brew"

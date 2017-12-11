@@ -1,16 +1,16 @@
+# Theme
+if { [ "$OS" = "macos" ]; }
+  then
+    ZSH_THEME="robbyrussell"
+    # fpath=( "$ZSH/custom/plugins/pure" $fpath )
+  else
+    ZSH_THEME="robbyrussell"
+fi
+
 source $HOME/.zsh/variables.zsh
 source $HOME/.zsh/alias.zsh
 source $HOME/.zsh/functions.zsh
 source $HOME/.zsh/flags.zsh
-
-# Theme
-if { [ "$OS" = "macos" ]; }
-  then
-    ZSH_THEME="refined"
-    fpath=( "$ZSH/custom/plugins/pure" $fpath )
-  else
-    ZSH_THEME="robbyrussell"
-fi
 
 
 # Uncomment the following line if you want to change the command execution time
