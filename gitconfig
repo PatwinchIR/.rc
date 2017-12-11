@@ -1,0 +1,37 @@
+[user]
+	name = Jim Zenn
+	email = jimzenn0@gmail.com
+[core]
+	excludesfile = /Users/Jim/.gitignore_global
+    editor = nvim
+	ignorecase = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[push]
+    default = current
+[alias]
+    co = checkout
+    rb = rebase
+    br = branch
+    cm = commit
+    rs = reset
+    ft = fetch
+    fu = reset --hard
+    lo = log --oneline
+    lg = log --graph
+    ln = log --oneline --graph
+    ps = push
+    pl = pull
+    puhs  = push
+    l  = log
+    s  = status
+[filter "lfs"]
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true
+[commit]
+	template = /Users/Jim/.stCommitMsg
