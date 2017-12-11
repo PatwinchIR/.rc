@@ -1,0 +1,43 @@
+# Typos
+alias cd..="cd .."
+alias sl="ls"
+alias brwe="brew"
+alias v.="v ."
+
+# Abbreviations
+alias g="git"
+alias v="nvim"
+alias vim="nvim"
+alias ipy="ipython"
+alias py="python3"
+alias py3="python3"
+alias py2="python2"
+alias pip3="~/.conda/bin/pip"
+alias jnb="jupyter notebook"
+alias t="tree"
+alias t1="tree -L 1"
+alias t2="tree -L 2"
+alias t3="tree -L 3"
+alias t4="tree -L 4"
+alias exif="exiftool"
+alias normalize-chmod="chmod -R 755 && find . -type f -print0 | xargs -0 chmod 644"
+
+alias ssh='TERM=tmux-256color ssh'
+
+# Haskell
+alias haskell="ghci"
+alias hs="ghci"
+
+alias hosts="sudo v /etc/hosts"
+alias chrome="open -a '/Applications/Google Chrome.app'"
+alias pi="ssh raspberry -l pi -p 22"
+
+# Upgrade
+alias upgrade_YCM="builtin cd $vim/bundle/YouCompleteMe && ./install.py --clang-completer && builtin cd -"
+alias upgrade_nvim='brew reinstall --HEAD neovim && upgrade_YCM'
+
+# Shortcuts
+alias code="cd ~/Code"
+alias curr="cd $code/zealoft-aurora"
+alias cs61a="cd $code/cs61a"
+alias cs61b="cd $code/cs61b"
