@@ -1,0 +1,39 @@
+function cd {
+  builtin cd "$@"
+  ls
+}
+
+function ssh-server {
+  eval `ssh-agent -s` && ssh-add
+}
+
+kpy() {
+  docker run -v $PWD:/tmp/working -w=/tmp/working --rm -it kaggle/python python "$@"
+}
+ikpy() {
+  docker run -v $PWD:/tmp/working -w=/tmp/working --rm -it kaggle/python ipython
+}
+kjupyter() {
+  (sleep 3 && open "http://$(docker-machine ip docker2):8888")&
+  docker run -v $PWD:/tmp/working -w=/tmp/working -p 8888:8888 --rm -it kaggle/python jupyter notebook --no-browser --ip="\*" --notebook-dir=/tmp/working
+}
+
+function color {
+  awk 'BEGIN{
+      s="/\\/\\/\\/\\/\\"; s=s s s s s s s s;
+      for (colnum = 0; colnum<77; colnum++) {
+          r = 255-(colnum*255/76);
+          g = (colnum*510/76);
+          b = (colnum*255/76);
+          if (g>255) g = 510-g;
+          printf "\033[48;2;%d;%d;%dm", r,g,b;
+          printf "\033[38;2;%d;%d;%dm", 255-r,255-g,255-b;
+          printf "%s\033[0m", substr(s,colnum+1,1);
+      }
+      printf "\n";
+  }'
+}
+
+function fd {
+  cp ~/Downloads/"$@" .
+}

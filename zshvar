@@ -29,6 +29,7 @@ export zsh="${HOME}/.zsh"
 export zshrc="${HOME}/.zshrc"
 export zshalias="${HOME}/.zsh/alias.zsh"
 export zshvar="${HOME}/.zsh/variables.zsh"
+export zshfunctions="${HOME}/.zsh/functions.zsh"
 export zshflags="${HOME}/.zsh/flags.zsh"
 
 export vim="${config}/nvim"
