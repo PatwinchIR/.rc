@@ -21,7 +21,6 @@ alias t4="tree -L 4"
 alias exif="exiftool"
 alias cdiff="colordiff"
 
-alias normalize-chmod="chmod -R 755 . && find . -type f -print0 | xargs -0 chmod 644"
 alias ssh='TERM=tmux-256color ssh'
 alias haskell="ghci"
 alias hs="ghci"
@@ -29,6 +28,7 @@ alias hs="ghci"
 if { [ "$OS" = "macos" ]; }
   then
     # Mac OS
+    alias normalize-chmod="sudo chmod -R 755 . && find . -type f -print0 | xargs -0 chmod 644"
     alias hosts="sudo v /etc/hosts"
     alias chrome="open -a '/Applications/Google Chrome.app'"
     alias pi="ssh raspberry -l pi -p 22"

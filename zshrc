@@ -25,6 +25,8 @@ plugins=(zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
+compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
+
 # iTerm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
