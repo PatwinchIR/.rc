@@ -28,9 +28,8 @@ source $ZSH/oh-my-zsh.sh
 # iTerm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-builtin cd $rc && git pull -q && builtin cd - &&
-
 if ! { [ -n "$TMUX" ]; } then
+  builtin cd $rc && git pull -q && builtin cd - &&
   if { [ "$TERM_PROGRAM" = "iTerm.app" ]; } then
     tmux attach -t iTerm || tmux new -s iTerm
   fi
