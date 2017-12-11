@@ -12,7 +12,6 @@ if { [ "$OS" = "macos" ]; }
     ZSH_THEME="robbyrussell"
 fi
 
-source $ZSH/oh-my-zsh.sh
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -23,6 +22,8 @@ source $ZSH/oh-my-zsh.sh
 # ~/.oh-my-zsh/plugins/
 # ~/.oh-my-zsh/custom/plugins/
 plugins=(zsh-syntax-highlighting zsh-autosuggestions)
+
+source $ZSH/oh-my-zsh.sh
 
 # iTerm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
