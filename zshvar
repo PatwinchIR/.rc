@@ -20,8 +20,7 @@ fi
 
 export rc="${HOME}/.rc"
 export code="${HOME}/Code"
-export algo="${code}/algo"
-export dev="${HOME}/dev"
+export aws="${code}/aws"
 export XDG_CONFIG_HOME="${HOME}/.config"
 export config="${HOME}/.config"
 
