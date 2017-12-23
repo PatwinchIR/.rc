@@ -11,10 +11,17 @@ fi
 if [[ -d ${HOME}/.termux ]];
   then
     export OS="android"
-  else
-    export OS="macos"
 fi
 
+if [[ -d ${HOME}/.ubuntu ]];
+  then
+    export OS="ubuntu"
+fi
+
+if [[ -d ${HOME}/.macos ]];
+  then
+    export OS="macos"
+fi
 
 # User configuration
 
@@ -59,7 +66,10 @@ if { [ "$OS" = "macos" ]; }
     export USR_JAVA_LIB_DIR="~/.javalib"
     export CLASSPATH="$CLASSPATH:$USR_JAVA_LIB_DIR:./"
     export GROOVY_HOME="/usr/local/opt/groovy/libexec"
-  else
+fi
+
+if { [ "$OS" = "macos" ]; }
+  then
     # Android
     export PATH="/data/data/com.termux/files/usr/bin:$PATH"
 fi
