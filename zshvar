@@ -68,8 +68,15 @@ if { [ "$OS" = "macos" ]; }
     export GROOVY_HOME="/usr/local/opt/groovy/libexec"
 fi
 
-if { [ "$OS" = "macos" ]; }
+if { [ "$OS" = "android" ]; }
   then
     # Android
     export PATH="/data/data/com.termux/files/usr/bin:$PATH"
 fi
+
+if { [ "$OS" = "ubuntu" ]; }
+  then
+    # Ubuntu
+    export PATH="/home/ubuntu/.conda/bin:$PATH"
+fi
+

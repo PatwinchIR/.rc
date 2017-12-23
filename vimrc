@@ -1,5 +1,8 @@
 " General {{{
 " Python host
+if $OS == "ubuntu"
+  let g:python3_host_prog = '/home/ubuntu/.conda/bin/python3'
+endif
 if $OS == "macos"
   let g:python_host_prog = '/usr/local/bin/python2'
   let g:python3_host_prog = '/Users/Jim/.conda/bin/python3'
