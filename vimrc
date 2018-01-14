@@ -1,6 +1,7 @@
 " General {{{
 " Python host
 if $OS == "ubuntu"
+  let g:python3_host_prog = '/home/ubuntu/.conda/bin/python2'
   let g:python3_host_prog = '/home/ubuntu/.conda/bin/python3'
 endif
 if $OS == "macos"
@@ -97,7 +98,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 
 " Template
-Plug 'aperezdc/vim-template'
+" Plug 'aperezdc/vim-template'
 
 " Highlighting
 Plug 'wavded/vim-stylus', { 'for': 'styl' }
@@ -114,7 +115,7 @@ Plug 'mrtazz/simplenote.vim'
 Plug 'reedes/vim-pencil'
 Plug 'tpope/vim-markdown'
 
-if $OS == "macos"
+if $OS != "android"
 " Syntax & Auto Completion
   Plug 'Valloric/YouCompleteMe'
 endif
@@ -137,7 +138,6 @@ set scrolloff=7
 " set cursorline
 
 " Change cursor shape between insert and normal mode in iTerm.app
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 if $TERM_PROGRAM =~ "iTerm.app"
   let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
   let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
@@ -153,6 +153,8 @@ set wildmode=list:longest,full
 set ruler
 set number
 
+" Set color column
+set colorcolumn=110
 " Show trailing whitespace
 set list
 
@@ -531,9 +533,9 @@ nmap <leader>p :CtrlP<CR>
 
 " Customization {{{
 
-let g:terminal_color_0 = "#17252C"
+let g:terminal_color_0 = "#142638"
 
-let g:terminal_color_background = "#17252C"
+let g:terminal_color_background = "#142638"
 
 hi ErrorMsg guifg=#ec5f67 ctermfg=203 guibg=#17252C ctermbg=235
 
