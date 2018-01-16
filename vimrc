@@ -116,6 +116,7 @@ Plug 'tpope/vim-markdown'
 if $OS != "android"
 " Syntax & Auto Completion
   Plug 'Valloric/YouCompleteMe'
+  Plug 'fatih/vim-go'
 endif
 
 " Colorscheme
