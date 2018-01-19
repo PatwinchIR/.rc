@@ -94,9 +94,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 
-" Template
-" Plug 'aperezdc/vim-template'
-
 " Highlighting
 Plug 'wavded/vim-stylus', { 'for': 'styl' }
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
@@ -119,6 +116,9 @@ if $OS != "android"
   Plug 'Valloric/YouCompleteMe'
   Plug 'fatih/vim-go'
 endif
+
+" Conceal
+Plug 'Jim-Zenn/vim-go-conceal'
 
 " Colorscheme
 Plug 'mhartington/oceanic-next'
