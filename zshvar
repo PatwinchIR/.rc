@@ -84,6 +84,6 @@ if { [ "$OS" = "ubuntu" ]; }
     else
       export TERM="tmux-256color"
   fi
-    export PATH="/home/ubuntu/.conda/bin:${HOME}/.go/bin:$PATH"
+    export PATH="/home/ubuntu/.conda/bin:${HOME}/.go/bin:${HOME}/.bin:$PATH"
 fi
 
