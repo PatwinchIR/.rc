@@ -388,7 +388,7 @@ let g:airline_mode_map = {
     \ '' : 'S',
     \ }
 
-let g:airline_section_z = '⍗%p%% ⯐ (%l,%c) %L'
+let g:airline_section_z = '⍗%p%% ⯐ (%l,%c) %L'
 
 " }}}
 

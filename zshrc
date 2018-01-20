@@ -1,7 +1,7 @@
 # Theme
 if { [ "$OS" = "macos" ]; }
   then
-    ZSH_THEME="robbyrussell"
+    ZSH_THEME="zenn"
     # fpath=( "$ZSH/custom/plugins/pure" $fpath )
   else
     ZSH_THEME="zenn"
