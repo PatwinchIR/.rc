@@ -114,7 +114,7 @@ Plug 'tpope/vim-markdown'
 if $OS != "android"
 " Syntax & Auto Completion
   Plug 'Valloric/YouCompleteMe'
-  Plug 'fatih/vim-go'
+  Plug 'fatih/vim-go', { 'for': ['go'] }
 endif
 
 " Conceal
@@ -388,7 +388,7 @@ let g:airline_mode_map = {
     \ '' : 'S',
     \ }
 
-let g:airline_section_z = '%p%% R:%l C:%c ≣%L'
+let g:airline_section_z = '⍗%p%% ⯐ (%l,%c) %L'
 
 " }}}
 
@@ -539,8 +539,9 @@ let g:terminal_color_background = "#142638"
 
 hi ErrorMsg guifg=#ec5f67 ctermfg=203 guibg=#17252C ctermbg=235
 
-hi Conceal guifg=#6699cc ctermfg=68 guibg=#17252C ctermbg=235
+hi Conceal gui=bold guifg=#6699cc guibg=#17252C cterm=bold ctermfg=68 ctermbg=235
 hi Cursor guifg=#17252C ctermfg=235 guibg=#c0c5ce ctermbg=251
+hi Special guifg=#6699cc guibg=None ctermfg=68 ctermbg=None
 
 hi Normal guifg=#c0c5ce ctermfg=251 guibg=#17252C ctermbg=235
 
@@ -567,4 +568,5 @@ hi Search                 guifg=#1A2B34  guibg=#FFFF00
 " hi EasyMotionShade         guifg=NONE  guibg=#282849
 hi EasyMotionIncSearch    guifg=#1A2B34  guibg=#FFFF00
 " hi EasyMotionMoveHL        guifg=NONE  guibg=#282849
+"
 " }}}
