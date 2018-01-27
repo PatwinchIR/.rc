@@ -78,12 +78,13 @@ fi
 if { [ "$OS" = "ubuntu" ]; }
   then
     # Ubuntu
-  if ! { [ -n "$TMUX" ]; }
-    then
-      export TERM="xterm-256color"
-    else
-      export TERM="tmux-256color"
-  fi
-    export PATH="/home/ubuntu/.conda/bin:${HOME}/.go/bin:${HOME}/.bin:$PATH"
+    export GOROOT="/usr/lib/go"
+    export PATH="/home/ubuntu/.conda/bin:${HOME}/.go/bin:${GOROOT}/bin:${HOME}/.bin:$PATH"
+    if ! { [ -n "$TMUX" ]; }
+      then
+        export TERM="xterm-256color"
+      else
+        export TERM="tmux-256color"
+    fi
 fi
 

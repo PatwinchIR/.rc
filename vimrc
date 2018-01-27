@@ -5,13 +5,14 @@ if $OS == "ubuntu"
 endif
 if $OS == "macos"
   let g:python3_host_prog = '/Users/Jim/.conda/bin/python3'
+  " Use system clipboard
+  set clipboard+=unnamedplus
 endif
 if $OS == "android"
   let g:python3_host_prog = '/data/data/com.termux/files/usr/bin/python3'
+  " Use system clipboard
+  set clipboard+=unnamedplus
 endif
-
-" Use system clipboard
-set clipboard+=unnamedplus
 
 " Sets how many lines of history VIM has to remember
 set history=700
@@ -85,6 +86,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'severin-lemaignan/vim-minimap'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Text manipulation
 Plug 'tpope/vim-commentary'
@@ -93,6 +96,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
+" Plug 'SirVer/ultisnips'
 
 " Highlighting
 Plug 'wavded/vim-stylus', { 'for': 'styl' }
@@ -171,7 +175,7 @@ set whichwrap+=<,>,h,l
 set noerrorbells
 
 " Force redraw
-map <silent> <leader>r :redraw!<CR>
+map <silent> <leader>R :redraw!<CR>
 
 " Default to mouse mode on
 set mouse=a
@@ -265,9 +269,9 @@ vnoremap k gk
 
 " xnoremap p "_dP
 
-nnoremap <leader>" :sp<CR>
-nnoremap <leader>% :vsp<CR>
-nnoremap <leader>w <C-W><C-W>
+nnoremap <silent> <leader>" :sp<CR>
+nnoremap <silent> <leader>% :vsp<CR>
+nnoremap <silent> <leader>w <C-W><C-W>
 
 " Disable highlight when <leader><cr> is pressed
 nmap <silent> <leader><cr> :noh<cr>
@@ -376,21 +380,49 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
+" let g:airline_mode_map = {
+"     \ '__' : '-',
+"     \ 'n'  : '𝑵',
+"     \ 'i'  : '𝙄',
+"     \ 'R'  : '𝑹',
+"     \ 'c'  : '𝑪',
+"     \ 'v'  : '𝑽',
+"     \ 'V'  : '𝑽',
+"     \ '' : '𝑽',
+"     \ 's'  : '𝑺',
+"     \ 'S'  : '𝑺',
+"     \ '' : '𝑺',
+"     \ }
+
 let g:airline_mode_map = {
     \ '__' : '-',
-    \ 'n'  : 'N',
-    \ 'i'  : 'I',
-    \ 'R'  : 'R',
-    \ 'c'  : 'C',
-    \ 'v'  : 'V',
-    \ 'V'  : 'V',
-    \ '' : 'V',
-    \ 's'  : 'S',
-    \ 'S'  : 'S',
-    \ '' : 'S',
+    \ 'n'  : '𝐍',
+    \ 'i'  : '𝐈',
+    \ 'R'  : '𝐑',
+    \ 'c'  : '𝐂',
+    \ 'v'  : '𝐕',
+    \ 'V'  : '𝐕',
+    \ '' : '𝐕',
+    \ 's'  : '𝐒',
+    \ 'S'  : '𝐒',
+    \ '' : '𝐒',
     \ }
 
-let g:airline_section_z = '⍗%p%% ⯐ (%l,%c) %L'
+" let g:airline_section_z = '⍗%p%% ⯐ (%l,%c) %L'
+let g:airline_section_z = '⯐ (%l,%c)'
+
+let g:airline#extensions#tabline#buffer_idx_format = {
+      \ '0': '⁰',
+      \ '1': '¹',
+      \ '2': '²',
+      \ '3': '³',
+      \ '4': '⁴',
+      \ '5': '⁵',
+      \ '6': '⁶',
+      \ '7': '⁷',
+      \ '8': '⁸',
+      \ '9': '⁹'
+      \}
 
 " }}}
 
@@ -421,6 +453,19 @@ endfunction
 " If nerd tree is closed, find current file, if open, close it
 nmap <silent> <leader>f <ESC>:call ToggleFindNerd()<CR>
 nmap <silent> <leader>F <ESC>:NERDTreeToggle<CR>
+
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "~",
+    \ "Staged"    : "+",
+    \ "Untracked" : "*",
+    \ "Renamed"   : "r",
+    \ "Unmerged"  : "m",
+    \ "Deleted"   : "-",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✓",
+    \ 'Ignored'   : "_",
+    \ "Unknown"   : "?"
+    \ }
 
 " }}}
 
@@ -472,7 +517,7 @@ nnoremap <silent> <leader>g? :call CommittedFiles()<CR>:copen<CR>
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_removed_first_line = '≙'
+let g:gitgutter_sign_removed_first_line = '⌅'
 let g:gitgutter_sign_modified_removed = '≃'
 
 let g:gitgutter_highlight_lines = 1
@@ -533,7 +578,36 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 nmap <leader>p :CtrlP<CR>
 " }}}
 
+" Vim Go{{{
+" patch: cnext cprev loop back
+command! Cnext try | cnext | catch | cfirst | catch | endtry
+command! Cprev try | cprev | catch | clast | catch | endtry
+
+command! Lnext try | lnext | catch | lfirst | catch | endtry
+command! Lprev try | lprev | catch | llast | catch | endtry
+
+cabbrev cnext Cnext
+cabbrev cprev CPrev
+cabbrev lnext Lnext
+cabbrev lprev Lprev
+
+au FileType go nmap <leader>r <Plug>(go-run-split)
+" au FileType go nmap <leader>b <Plug>(go-def)
+au FileType go nmap <leader>B <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>i <Plug>(go-info)
+au FileType go nmap cn :cnext<CR>
+au FileType go nmap cN :cprevious<CR>
+au FileType go nmap ca :cclose<CR>
+
+let g:go_fmt_command = "goimports"
+
+set autowrite
+" }}}
+
 " Customization {{{
+set noshowmode
+set cursorline
 
 let g:terminal_color_0 = "#142638"
 
@@ -543,7 +617,8 @@ hi ErrorMsg guifg=#ec5f67 ctermfg=203 guibg=#17252C ctermbg=235
 
 hi Conceal gui=bold guifg=#6699cc guibg=#17252C cterm=bold ctermfg=68 ctermbg=235
 hi Cursor guifg=#17252C ctermfg=235 guibg=#c0c5ce ctermbg=251
-hi Special guifg=#6699cc guibg=None ctermfg=68 ctermbg=None
+
+hi CursorLine guifg=NONE ctermfg=NONE guibg=#1C2C33 ctermbg=251
 
 hi Normal guifg=#c0c5ce ctermfg=251 guibg=#17252C ctermbg=235
 
@@ -571,4 +646,8 @@ hi Search                 guifg=#1A2B34  guibg=#FFFF00
 hi EasyMotionIncSearch    guifg=#1A2B34  guibg=#FFFF00
 " hi EasyMotionMoveHL        guifg=NONE  guibg=#282849
 "
+hi WhiteSpace guifg=#213540 guibg=None ctermfg=77 ctermbg=None
+
+let g:UltiSnipsExpandTrigger = "jr"
+
 " }}}
