@@ -72,9 +72,7 @@ else
   call plug#begin('~/.vim/bundle')
 endif
 
-" Support bundles
 Plug 'ervandew/supertab'
-Plug 'nathanaelkane/vim-indent-guides'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -164,7 +162,7 @@ set list
 
 " Height of the command bar
 set cmdheight=1
-set listchars=tab:>-,trail:·
+set listchars=tab:▏\ ,trail:·
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -353,7 +351,7 @@ map fk <Plug>(easymotion-b)
 
 " }}}
 
-" Status line {{{
+" Airline {{{
 
 " Always show the status line
 set laststatus=2
@@ -528,6 +526,9 @@ hi GitGutterChangeLine        guifg=NONE  ctermfg=NONE  guibg=#12283b  ctermbg=0
 hi GitGutterChangeDeleteLine  guifg=NONE  ctermfg=NONE  guibg=#282849  ctermbg=134
 
 nnoremap <silent> <leader>gh :GitGutterLineHighlightsToggle<CR>
+
+nmap ,hn <Plug>GitGutterNextHunk
+nmap ,hN <Plug>GitGutterPrevHunk
 
 " }}}
 
