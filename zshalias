@@ -1,6 +1,8 @@
 # Typos
 
 alias cd..="cd .."
+alias dc="cd"
+alias dc..="cd .."
 alias sl="ls"
 alias brwe="brew"
 alias v.="v ."
@@ -22,6 +24,8 @@ alias t3="tree -L 3"
 alias t4="tree -L 4"
 alias exif="exiftool"
 alias cdiff="colordiff"
+alias vzsh="v ~/.zshrc"
+alias szsh="source ~/.zshrc"
 
 alias ssh='TERM=tmux-256color ssh'
 alias haskell="ghci"
