@@ -1,6 +1,6 @@
 [user]
-	name = Jim Zenn
-	email = jimzenn0@gmail.com
+	name = Dee Dong
+	email = d.d02031pw@gmail.com
 [core]
 	excludesfile = $HOME/.gitignore_global
     editor = nvim

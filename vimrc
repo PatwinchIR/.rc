@@ -4,7 +4,7 @@ if $OS == "ubuntu"
   let g:python3_host_prog = '/home/ubuntu/.conda/bin/python3'
 endif
 if $OS == "macos"
-  let g:python3_host_prog = '/Users/Jim/.conda/bin/python3'
+  " let g:python3_host_prog = '~/.conda/bin/python3'
   " Use system clipboard
   set clipboard+=unnamedplus
 endif
@@ -82,9 +82,7 @@ Plug 'airblade/vim-gitgutter'
 " Bars, panels, and files
 Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
-Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'severin-lemaignan/vim-minimap'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Text manipulation
@@ -97,20 +95,9 @@ Plug 'tpope/vim-surround'
 " Plug 'SirVer/ultisnips'
 
 " Highlighting
-Plug 'wavded/vim-stylus', { 'for': 'styl' }
-Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
-Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
-Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
-Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'scss'] }
-Plug 'pangloss/vim-javascript'
-Plug 'posva/vim-vue'
 Plug 'jez/vim-ispc'
 
-" Simplenote
-Plug 'mrtazz/simplenote.vim'
-
 " Markdown
-Plug 'reedes/vim-pencil'
 Plug 'tpope/vim-markdown'
 
 if $OS != "android"
@@ -118,9 +105,6 @@ if $OS != "android"
   Plug 'Valloric/YouCompleteMe'
   Plug 'fatih/vim-go', { 'for': ['go'] }
 endif
-
-" Conceal
-Plug 'Jim-Zenn/vim-go-conceal'
 
 " Colorscheme
 Plug 'mhartington/oceanic-next'
@@ -137,7 +121,7 @@ set wrap
 set scrolloff=7
 
 " Highlight cursor line
-" set cursorline
+set cursorline
 
 " Change cursor shape between insert and normal mode in iTerm.app
 if $TERM_PROGRAM =~ "iTerm.app"
@@ -542,37 +526,6 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " }}}
 
-" Template Variables {{{
-let g:email = "zenn@berkeley.edu"
-let g:username = "Qingwei Zeng (Jim Zenn)"
-" }}}
-
-" Simplenote {{{
-let g:SimplenoteUsername = "jimzenn0@gmail.com"
-let g:SimplenotePassword = "jim_HIT@Simple"
-let g:SimplenoteFiletype = "markdown"
-let g:SimplenoteNoteFormat = "%N%>[%T] [%D].md"
-
-command SNList        SimplenoteList
-command SNUpdate      SimplenoteUpdate
-command SNOpen        SimplenoteOpen
-command SNVersionInfo SimplenoteVersionInfo
-command SNVersion     SimplenoteVersion
-command SNTrash       SimplenoteTrash
-command SNDelete      SimplenoteDelete
-command SNNew         SimplenoteNew
-command SNPin         SimplenotePin
-command SNUnpin       SimplenoteUnpin
-
-nmap <leader>sl :SNList<CR>
-nmap <leader>su :SNUpdate<CR>
-nmap <leader>so :SNOpen<CR>
-nmap <leader>sd :SNDelete<CR>
-nmap <leader>sn :SNNew<CR>
-nmap <leader>sp :SNPin<CR>
-nmap <leader>sv :SNUnpin<CR>
-" }}}
-
 " CtrlP {{{
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
@@ -608,7 +561,6 @@ set autowrite
 
 " Customization {{{
 set noshowmode
-set cursorline
 
 let g:terminal_color_0 = "#142638"
 
