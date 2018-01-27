@@ -22,14 +22,11 @@ alias t1="tree -L 1"
 alias t2="tree -L 2"
 alias t3="tree -L 3"
 alias t4="tree -L 4"
-alias exif="exiftool"
 alias cdiff="colordiff"
 alias vzsh="v ~/.zshrc"
 alias szsh="source ~/.zshrc"
 
 alias ssh='TERM=tmux-256color ssh'
-alias haskell="ghci"
-alias hs="ghci"
 
 if { [ "$OS" = "ubuntu" ]; }
   then
@@ -47,11 +44,9 @@ if { [ "$OS" = "macos" ]; }
     alias normalize-chmod="sudo chmod -R 755 . && find . -type f -print0 | xargs -0 chmod 644"
     alias hosts="sudo v /etc/hosts"
     alias chrome="open -a '/Applications/Google Chrome.app'"
-    alias pi="ssh raspberry -l pi -p 22"
     alias pip3="~/.conda/bin/pip"
     alias upgrade_YCM="builtin cd $vim/bundle/YouCompleteMe && ./install.py --go-completer --clang-completer && builtin cd -"
     alias upgrade_nvim='brew reinstall --HEAD neovim && upgrade_YCM'
-    alias chrome="open -a '/Applications/Google Chrome.app'"
 fi
 
 if { [ "$OS" = "android" ]; }

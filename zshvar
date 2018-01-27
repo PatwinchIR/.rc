@@ -41,7 +41,6 @@ export zshflags="${HOME}/.zsh/flags.zsh"
 export vim="${config}/nvim"
 export vimrc="${config}/nvim/init.vim"
 export ipythonrc="${HOME}/.ipython/profile_default/ipython_config.py"
-export motto="${HOME}/.motto"
 export GOPATH="${HOME}/.go"
 
 export VISUAL="nvim"
@@ -62,11 +61,11 @@ fi
 if { [ "$OS" = "macos" ]; }
   then
     # Mac OS
-    export PATH="/usr/local/share/dotnet:/Users/Jim/.conda/bin:/Users/Jim/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin/$HOME/.rvm/bin:$PATH"
+    export PATH="${HOME}/.conda/bin:${HOME}/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:$PATH"
     export TERM="xterm-256color-italic"
-    export USR_JAVA_LIB_DIR="~/.javalib"
-    export CLASSPATH="$CLASSPATH:$USR_JAVA_LIB_DIR:./"
-    export GROOVY_HOME="/usr/local/opt/groovy/libexec"
+    # export USR_JAVA_LIB_DIR="~/.javalib"
+    # export CLASSPATH="$CLASSPATH:$USR_JAVA_LIB_DIR:./"
+    # export GROOVY_HOME="/usr/local/opt/groovy/libexec"
 fi
 
 if { [ "$OS" = "android" ]; }
