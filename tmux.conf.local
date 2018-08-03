@@ -251,7 +251,13 @@ tmux_conf_copy_to_os_clipboard=true
 
 
 # -- user customizations -------------------------------------------------------
+
+bind-key -n C-s send-prefix
+
 # this is the place to override or undo settings
+unbind r
+bind r respawn-pane -k
+bind R source-file ~/.tmux.conf \; display '~/.tmux.conf sourced'
 bind C new-session
 bind X kill-session
 # Start windows and panes at 1, not 0
@@ -264,7 +270,6 @@ tmux_conf_theme_prefix='⚙'            # U+2328
 tmux_conf_theme_window_status_format=' #I #W#{?window_bell_flag,⁜,}#{?window_zoomed_flag,🔍,}'
 
 tmux_conf_theme_24b_colour=true
-tmux_conf_new_pane_reconnect_ssh=true
 tmux_conf_new_window_retain_current_path=true
 
 # increase history size

@@ -104,6 +104,7 @@ if $OS != "android"
 " Syntax & Auto Completion
   Plug 'Valloric/YouCompleteMe'
   Plug 'fatih/vim-go', { 'for': ['go'] }
+  Plug 'derekwyatt/vim-scala'
 endif
 
 " Colorscheme
