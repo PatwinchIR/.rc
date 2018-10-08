@@ -4,12 +4,14 @@ mkdir .macos
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+rm .zshrc
+
 ln -s $HOME/.rc/zshrc $HOME/.zshrc
 
 mkdir .zsh
 
 ln -s $HOME/.rc/zshalias $HOME/.zsh/alias.zsh
-ln -s $HOME/.rc/zshflags f$HOME/.zsh/lags.zsh
+ln -s $HOME/.rc/zshflags $HOME/.zsh/flags.zsh
 ln -s $HOME/.rc/zshfunctions $HOME/.zsh/functions.zsh
 ln -s $HOME/.rc/zshvar $HOME/.zsh/variables.zsh
 
@@ -38,25 +40,32 @@ if [[ $(command -v pip3) ]]; then
   echo "Python 3.x is already installed"
 else
   echo "Installing Miniconda Python 3.x"
-  bash <(curl -s https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh)
+  bash <(curl -s https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh | echo "Miniconda3-latest-MacOSX-x86_64.sh")
 fi
 
-pip3 install neovim
+pip install neovim
 
 mkdir .config
 cd .config
 mkdir nvim
-cd nvim
 
 ln -s $HOME/.rc/vimrc $HOME/.config/nvim/init.vim
 
+cd
+
 source .zshrc
+
+# Install vim-plug for nvim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Installing vim plugins
 v +PlugInstall
 
+# Installing cmake, required by YCM
+brew install cmake
+
 cd $HOME/.config/nvim/bundle/YouCompleteMe/
-./install.py --clang-completer
+./install.py # --clang-completer
 
 
 
