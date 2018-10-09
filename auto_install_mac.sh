@@ -23,8 +23,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 # Installing NEOVIM
 
 if [[ $(command -v nvim) ]]; then
-  echo "Neovim is already installed"
-else
+  echo "Neovim is already installed" else
   echo "Downloading & installing neovim"
   if [[ $(command -v brew) ]]; then
     echo "Homebrew is already installed"
@@ -40,18 +39,15 @@ if [[ $(command -v pip3) ]]; then
   echo "Python 3.x is already installed"
 else
   echo "Installing Miniconda Python 3.x"
-  bash <(curl -s https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh | echo "Miniconda3-latest-MacOSX-x86_64.sh")
+  sh <(curl -s https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh | echo "Miniconda3-latest-MacOSX-x86_64.sh")
 fi
 
 pip install neovim
 
 mkdir .config
-cd .config
-mkdir nvim
+mkdir .config/nvim
 
 ln -s $HOME/.rc/vimrc $HOME/.config/nvim/init.vim
-
-cd
 
 source .zshrc
 
