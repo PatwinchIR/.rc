@@ -61,7 +61,7 @@ fi
 if { [ "$OS" = "macos" ]; }
   then
     # Mac OS
-    export PATH="${HOME}/.conda/bin:${HOME}/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:$PATH"
+    export PATH="/opt/homebrew/opt/python@3.10/libexec/bin:/opt/homebrew/bin:${HOME}/.conda/bin:${HOME}/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:$PATH"
     export TERM="xterm-256color-italic"
     # export USR_JAVA_LIB_DIR="~/.javalib"
     # export CLASSPATH="$CLASSPATH:$USR_JAVA_LIB_DIR:./"
