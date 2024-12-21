@@ -35,14 +35,8 @@ if [[ $(command -v nvim) ]]; then
   brew install neovim
 fi
 
-if [[ $(command -v pip3) ]]; then
-  echo "Python 3.x is already installed"
-else
-  echo "Installing Miniconda Python 3.x"
-  sh <(curl -s https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh | echo "Miniconda3-latest-MacOSX-x86_64.sh")
-fi
 
-pip install neovim
+pip3 install neovim
 
 mkdir .config
 mkdir .config/nvim
@@ -56,12 +50,5 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 
 # Installing vim plugins
 v +PlugInstall
-
-# Installing cmake, required by YCM
-brew install cmake
-
-cd $HOME/.config/nvim/bundle/YouCompleteMe/
-./install.py # --clang-completer
-
 
 
