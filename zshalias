@@ -43,10 +43,6 @@ if { [ "$OS" = "macos" ]; }
     # Mac OS
     alias normalize-chmod="sudo chmod -R 755 . && find . -type f -print0 | xargs -0 chmod 644"
     alias hosts="sudo v /etc/hosts"
-    alias chrome="open -a '/Applications/Google Chrome.app'"
-    alias pip3="~/.conda/bin/pip"
-    alias upgrade_YCM="builtin cd $vim/bundle/YouCompleteMe && ./install.py --go-completer --clang-completer && builtin cd -"
-    alias upgrade_nvim='brew reinstall --HEAD neovim && upgrade_YCM'
 fi
 
 if { [ "$OS" = "android" ]; }

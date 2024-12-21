@@ -80,10 +80,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " Bars, panels, and files
-Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Text manipulation
 Plug 'tpope/vim-commentary'
@@ -102,7 +100,6 @@ Plug 'tpope/vim-markdown'
 
 if $OS != "android"
 " Syntax & Auto Completion
-  Plug 'Valloric/YouCompleteMe'
   Plug 'fatih/vim-go', { 'for': ['go'] }
   Plug 'derekwyatt/vim-scala'
 endif
@@ -457,8 +454,6 @@ let g:NERDTreeIndicatorMapCustom = {
 map <leader>tt :TagbarToggle<CR>
 
 set tags=tags;/
-set cst
-set csverb
 
 " }}}
 

@@ -26,8 +26,6 @@ fi
 # User configuration
 
 export rc="${HOME}/.rc"
-export code="${HOME}/Code"
-export aws="${code}/aws"
 export XDG_CONFIG_HOME="${HOME}/.config"
 export config="${HOME}/.config"
 
@@ -40,8 +38,6 @@ export zshflags="${HOME}/.zsh/flags.zsh"
 
 export vim="${config}/nvim"
 export vimrc="${config}/nvim/init.vim"
-export ipythonrc="${HOME}/.ipython/profile_default/ipython_config.py"
-export GOPATH="${HOME}/.go"
 
 export VISUAL="nvim"
 
